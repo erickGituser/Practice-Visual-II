@@ -8,16 +8,16 @@ namespace PracticeOne.Clases
 {
     class CProducts
     {
-        public int Code { get; set; }
+        public int? Code { get; set; }
         public string Name { get; set; }
-        public string Products { get; set; }
-        public decimal Quantity { get; set; }
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
 
-        public CProducts(int code, string name, string products, decimal quantity)
+        public CProducts(int code, string name, decimal price, int quantity)
         {
             Code = code;
             Name = name;
-            Products = products;
+            Price = price;
             Quantity = quantity;
         }
     }

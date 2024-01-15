@@ -112,9 +112,10 @@
             // textBoxCode
             // 
             textBoxCode.BackColor = SystemColors.ScrollBar;
-            textBoxCode.ForeColor = SystemColors.MenuBar;
+            textBoxCode.ForeColor = SystemColors.InfoText;
             textBoxCode.Location = new Point(199, 162);
             textBoxCode.Name = "textBoxCode";
+            textBoxCode.ReadOnly = true;
             textBoxCode.Size = new Size(151, 26);
             textBoxCode.TabIndex = 4;
             textBoxCode.TextChanged += textBoxCode_TextChanged;
@@ -122,7 +123,7 @@
             // textBoxName
             // 
             textBoxName.BackColor = SystemColors.ScrollBar;
-            textBoxName.ForeColor = SystemColors.MenuBar;
+            textBoxName.ForeColor = SystemColors.InfoText;
             textBoxName.Location = new Point(199, 200);
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(279, 26);
@@ -132,7 +133,7 @@
             // textBoxPrice
             // 
             textBoxPrice.BackColor = SystemColors.ScrollBar;
-            textBoxPrice.ForeColor = SystemColors.MenuBar;
+            textBoxPrice.ForeColor = SystemColors.InfoText;
             textBoxPrice.Location = new Point(199, 237);
             textBoxPrice.Name = "textBoxPrice";
             textBoxPrice.Size = new Size(74, 26);
@@ -142,7 +143,7 @@
             // textBoxQuantity
             // 
             textBoxQuantity.BackColor = SystemColors.ScrollBar;
-            textBoxQuantity.ForeColor = SystemColors.MenuBar;
+            textBoxQuantity.ForeColor = SystemColors.InfoText;
             textBoxQuantity.Location = new Point(199, 272);
             textBoxQuantity.Name = "textBoxQuantity";
             textBoxQuantity.Size = new Size(74, 26);
@@ -154,7 +155,7 @@
             menuStrip2.Items.AddRange(new ToolStripItem[] { menuFile, menuOperations, menuShow, menuHelp });
             menuStrip2.Location = new Point(0, 0);
             menuStrip2.Name = "menuStrip2";
-            menuStrip2.Size = new Size(678, 24);
+            menuStrip2.Size = new Size(634, 24);
             menuStrip2.TabIndex = 9;
             menuStrip2.Text = "menuStrip2";
             // 
@@ -195,6 +196,7 @@
             orderSave.ShortcutKeys = Keys.Control | Keys.S;
             orderSave.Size = new Size(191, 22);
             orderSave.Text = "Save";
+            orderSave.Click += orderSave_Click;
             // 
             // orderCancel
             // 
@@ -202,6 +204,7 @@
             orderCancel.ShortcutKeys = Keys.Control | Keys.C;
             orderCancel.Size = new Size(191, 22);
             orderCancel.Text = "Cancel";
+            orderCancel.Click += orderCancel_Click;
             // 
             // orderTotal
             // 
@@ -209,6 +212,7 @@
             orderTotal.ShortcutKeys = Keys.Control | Keys.T;
             orderTotal.Size = new Size(191, 22);
             orderTotal.Text = "Total ";
+            orderTotal.Click += orderTotal_Click;
             // 
             // menuShow
             // 
@@ -219,19 +223,25 @@
             // 
             // orderShowToolBar
             // 
+            orderShowToolBar.Checked = true;
             orderShowToolBar.CheckOnClick = true;
+            orderShowToolBar.CheckState = CheckState.Checked;
             orderShowToolBar.Name = "orderShowToolBar";
             orderShowToolBar.ShortcutKeys = Keys.Control | Keys.B;
             orderShowToolBar.Size = new Size(166, 22);
             orderShowToolBar.Text = "Tool Bar";
+            orderShowToolBar.Click += orderShowToolBar_Click;
             // 
             // orderShowStatusBar
             // 
+            orderShowStatusBar.Checked = true;
             orderShowStatusBar.CheckOnClick = true;
+            orderShowStatusBar.CheckState = CheckState.Checked;
             orderShowStatusBar.Name = "orderShowStatusBar";
             orderShowStatusBar.ShortcutKeys = Keys.Control | Keys.E;
             orderShowStatusBar.Size = new Size(166, 22);
             orderShowStatusBar.Text = "Status Bar";
+            orderShowStatusBar.Click += orderShowStatusBar_Click;
             // 
             // menuHelp
             // 
@@ -246,6 +256,7 @@
             orderShowAbout.ShortcutKeys = Keys.Control | Keys.A;
             orderShowAbout.Size = new Size(158, 22);
             orderShowAbout.Text = "About...";
+            orderShowAbout.Click += orderShowAbout_Click;
             // 
             // timer1
             // 
@@ -256,14 +267,14 @@
             // 
             statusStrip1.Location = new Point(0, 425);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(678, 22);
+            statusStrip1.Size = new Size(634, 22);
             statusStrip1.TabIndex = 10;
             statusStrip1.Text = "statusStrip1";
             // 
             // buttonFirst
             // 
             buttonFirst.Enabled = false;
-            buttonFirst.ForeColor = SystemColors.ControlDark;
+            buttonFirst.ForeColor = SystemColors.ActiveCaptionText;
             buttonFirst.Image = (Image)resources.GetObject("buttonFirst.Image");
             buttonFirst.Location = new Point(118, 336);
             buttonFirst.Name = "buttonFirst";
@@ -276,7 +287,7 @@
             // buttonBack
             // 
             buttonBack.Enabled = false;
-            buttonBack.ForeColor = SystemColors.ActiveBorder;
+            buttonBack.ForeColor = SystemColors.ActiveCaptionText;
             buttonBack.Location = new Point(221, 336);
             buttonBack.Name = "buttonBack";
             buttonBack.Size = new Size(75, 23);
@@ -288,7 +299,7 @@
             // buttonNext
             // 
             buttonNext.Enabled = false;
-            buttonNext.ForeColor = SystemColors.ActiveBorder;
+            buttonNext.ForeColor = SystemColors.ActiveCaptionText;
             buttonNext.Location = new Point(328, 336);
             buttonNext.Name = "buttonNext";
             buttonNext.Size = new Size(75, 23);
@@ -300,7 +311,7 @@
             // buttonLast
             // 
             buttonLast.Enabled = false;
-            buttonLast.ForeColor = SystemColors.ActiveBorder;
+            buttonLast.ForeColor = SystemColors.ActiveCaptionText;
             buttonLast.Location = new Point(444, 336);
             buttonLast.Name = "buttonLast";
             buttonLast.Size = new Size(75, 23);
@@ -315,7 +326,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButtonNew, toolStripButtonSave, toolStripButtonCancel, toolStripTextBoxSearch, toolStripButtonSearch, toolStripButtonAbout });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(678, 25);
+            toolStrip1.Size = new Size(634, 25);
             toolStrip1.TabIndex = 15;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -353,7 +364,6 @@
             // 
             toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             toolStripTextBoxSearch.Size = new Size(100, 25);
-            toolStripTextBoxSearch.Text = "Search...";
             toolStripTextBoxSearch.Click += toolStripTextBoxSearch_Click;
             // 
             // toolStripButtonSearch
@@ -381,7 +391,7 @@
             AutoScaleDimensions = new SizeF(7F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonFace;
-            ClientSize = new Size(678, 447);
+            ClientSize = new Size(634, 447);
             Controls.Add(toolStrip1);
             Controls.Add(buttonLast);
             Controls.Add(buttonNext);
